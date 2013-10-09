@@ -1,0 +1,15 @@
+{
+  "name": "express-why",
+  "version": "0.1.0",
+  "description": "why() generator support for express routes and middleware.",
+  "main": "index.js",
+  "dependencies": {
+    "why": "~0.1.10"
+  },
+  "keywords": [
+    "generators", "express", "yield"
+  ],
+  "devDependencies": {},
+  "author": "Daniel Pihlstrom",
+  "license": "BSD"
+}
