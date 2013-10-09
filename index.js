@@ -2,7 +2,7 @@ var why = require('why');
 
 module.exports = exports = function configure(app) {
   if(arguments.length === 0) setupGlobal();
-  else setupLocal(all);
+  else setupLocal(app);
 }
 
 function setupLocal(app) {
@@ -13,15 +13,15 @@ function setupLocal(app) {
 }
 
 function setupGlobal() {
-  var app = require('express/lib/application')
+  var connect = require('connect');
   var router = require('express/lib/router');
 
-  app.use = replaceArguments(app.use);
+  connect.proto.use = replaceArguments(connect.proto.use);
   router.prototype.route = replaceArguments(router.prototype.route);
 }
 
 function replaceArguments(fn) {
-  return function() {
+  var wrapped = function() {
     for(var i=0; i<arguments.length; ++i) {
       var v = arguments[i];
       if(v && v.constructor && v.constructor.name === 'GeneratorFunction') {
@@ -31,6 +31,8 @@ function replaceArguments(fn) {
     }
     return fn.apply(this, arguments);
   }
+  wrapped.toString = function() { return 'expressWhy(' + fn.toString() + ')'; }
+  return wrapped;
 }
 
 function wrap(cb) {
