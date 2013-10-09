@@ -2,7 +2,9 @@ var why = require('why');
 
 module.exports = exports = function configure(app) {
   if(arguments.length === 0) setupGlobal();
-  else setupLocal(app);
+  for(var i=0; i<arguments.length; ++i) {
+    setupLocal(arguments[i]);
+  }
 }
 
 function setupLocal(app) {
