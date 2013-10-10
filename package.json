@@ -2,6 +2,10 @@
   "name": "express-why",
   "version": "0.1.1",
   "description": "why() generator support for express routes and middleware.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sciolist/express-why.git"
+  },
   "main": "index.js",
   "dependencies": {
     "why": "~0.1.10"
