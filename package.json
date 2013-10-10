@@ -1,6 +1,6 @@
 {
   "name": "express-why",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "why() generator support for express routes and middleware.",
   "repository": {
     "type": "git",
